@@ -3,9 +3,9 @@ package mujProgram;
 import java.util.Scanner;
 
 /**
- * Slouzi jako spoustec pro vsechny ostatni funkce programu;
+ * Slouzi jako spoustec pro vsechny ostatni programy;
  * Zobrazuje uzivateli menu moznosti a na zaklade jeho vstupu spousti zvolene
- * veci.
+ * veci. 
  * 
  * @author david
  * @version 1.1
@@ -13,6 +13,9 @@ import java.util.Scanner;
 public class Launcher {
 
     public static void main(String[] args) {
+        /**
+         * Vypisuje uzivateli menu, dle vstupu od uzivatele spusti vanocni ulohu, semestralni praci, nebo ukonci program.
+         */
         Scanner sc = new Scanner(System.in);
 
         String usr = System.getProperty("user.name");
@@ -34,7 +37,7 @@ public class Launcher {
             }
             
         } while (menu > 0);
-
+        
         System.out.printf("\nPreji hezky den %S!\n", usr);
     }
 

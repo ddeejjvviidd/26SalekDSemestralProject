@@ -6,32 +6,31 @@ package mujProgram;
 
 import java.util.Scanner;
 /**
- * Slouzi jako spoustec pro vsechny ostatni funkce programu;
- * Zobrazuje uzivateli menu moznosti a na zaklade jeho vstupu spousti zvolene
- * veci.
+ * Obsahuje pomocne funkce pro formatovani textu v konzoli.
  * 
  * @author david
- * @version 1.4
+ * @version 1.5
  */
 
 public class Tools {
     
+    public static final String ANSI_RESET = "\u001B[0m";
+    public static final String ANSI_GREEN = "\u001B[32m";
+    public static final String ANSI_RED = "\u001B[31m";
+    public static final String ANSI_BLACKB = "\u001B[40m";
+    
     public static int containerMaxWidth = 128; //maximalni sirka kontejneru
     public static int containerWidth = 32; //defaultni sirka kontejneru
     public static int containerSidePadding = 2; //pocet mezer mezi textem a bocnim ohranicenim
-    
-    public static void menuLine() {
-        for (int i = 0; i < containerWidth; i++) {
-            System.out.printf("-");
-        }
-        System.out.printf("\n");
-    }
-    
+        
     public static void emptyLine() {
         System.out.printf("\n");
     }
     
     public static void enterToContinue() {
+        /** 
+         * Stiskni enter pro pokracovani.
+         */
         Scanner sc = new Scanner(System.in);
         emptyLine();
         System.out.print("Press ENTER to continue...");
@@ -76,6 +75,11 @@ public class Tools {
     }
     
     public static void textContainer(String inputText) {
+        /**
+         * Vstupni retezec vypise do konzole ohranicene rameckem; 
+         * Bere v potaz odradkovani '\n'.
+         */
+        
         //rozdeli vstupni String na String pole dle odradkovani \n
         String[] output = inputText.split("\\r?\\n");
         

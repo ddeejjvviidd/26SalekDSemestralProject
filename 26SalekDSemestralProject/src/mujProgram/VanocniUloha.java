@@ -9,8 +9,8 @@ import java.util.Scanner;
 /**
  * <b>Vanocni uloha, generovani vlastni vesnicky; </b>
  * <i>Hlavni funkce programu main() slouzi spise pro debug ucely, spousteni 
- * programu je zamysleno z externiho zdroje zavolanim funkce launch(), 
- * ktera se ovsem da zavolat i z funkce main(); </i>
+ * programu je zamysleno z externiho zdroje zavolanim funkce 'launch()', 
+ * ktera se ovsem da zavolat i z funkce 'main()'; </i>
  * Funkce 'launch()' po spusteni prevezme komunikaci s uzivatelem 
  * a na zaklade jeho vstupu vypise do konzole vygenerovanou vanocni 
  * vecnicku funkci 'generateVillage()'.
@@ -20,10 +20,6 @@ import java.util.Scanner;
  */
 
 public class VanocniUloha {
-    
-    public final String ANSI_RESET = "\u001B[0m";
-    public final String ANSI_GREEN = "\u001B[32m";
-    public final String ANSI_BLACKB = "\u001B[40m";
     
     // pT prints tree
     public static void pT(int x) {
@@ -171,9 +167,17 @@ public class VanocniUloha {
         
         Scanner sc = new Scanner(System.in);
         
-        Tools.textContainer("Postav si svoji vlastni vanocni vesnicku!\n"
-                + "Muzes stavet: \n h = house\n b = barn\n t = tree\n s = snowman\n c = church\n m - moon\n"
-                + "Poradi je libovolne a neomezene, zadejte po sobe pismena objektu \"bhstmch\"\n");
+        Tools.textContainer("""
+                            Postav si svoji vlastni vanocni vesnicku!
+                            Muzes stavet: 
+                             h = house
+                             b = barn
+                             t = tree
+                             s = snowman
+                             c = church
+                             m - moon
+                            Poradi je libovolne a neomezene, zadejte po sobe pismena objektu "bhstmch"
+                            """);
         
         Tools.input();
         String input = sc.nextLine();
@@ -186,6 +190,11 @@ public class VanocniUloha {
     }
     
     public static void main(String[] args) {
+        /**
+         * <i>Hlavni funkce programu 'main()' slouzi spise pro debug ucely, spousteni 
+         * programu je zamysleno z externiho zdroje zavolanim funkce 'launch()', 
+         * ktera se ovsem da zavolat i z funkce 'main()'; </i>
+         */
         
         //pri spusteni volanim launch() z externiho souboru se tato funkce vubec nespusti
         Tools.textContainer("!!! Spoustite vanocni ulohu bez pouziti launcheru !!!\nPro spravne fungovani programu ho spustte skrze Launcher.java");

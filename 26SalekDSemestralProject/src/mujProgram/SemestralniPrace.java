@@ -5,7 +5,7 @@ import java.util.Scanner;
 /**
  * <b>26 uloha, magicka matice;</b>
  * <i>Hlavni funkce programu 'main()' slouzi spise pro debug ucely, spousteni 
- * programu je zamysleno z externiho zdroje zavolanim funkce launch(), 
+ * programu je zamysleno z externiho zdroje zavolanim funkce 'launch()', 
  * ktera se ovsem da zavolat i z funkce 'main()'; </i>
  * Program po spusteni funkce 'launch()' nacte od uzivatele rozmery matice 
  * a jeji hodnoty; 
@@ -220,6 +220,11 @@ public class SemestralniPrace {
     }
     
     public static void main(String[] args) {
+        /**
+         * <i>Hlavni funkce programu 'main()' slouzi spise pro debug ucely, spousteni 
+         * programu je zamysleno z externiho zdroje zavolanim funkce 'launch()', 
+         * ktera se ovsem da zavolat i z funkce 'main()'; </i>
+         */
         
         //pri spusteni volanim launch() z externiho souboru se tato funkce vubec nespusti
         Tools.textContainer("!!! Spoustite semestralni praci bez pouziti launcheru !!!\nPro spravne fungovani programu ho spustte skrze Launcher.java");
