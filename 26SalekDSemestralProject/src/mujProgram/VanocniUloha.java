@@ -21,7 +21,10 @@ import java.util.Scanner;
 
 public class VanocniUloha {
     
-    // pT prints tree
+    /**
+     * Vstupem metody je int x;
+     * Metoda vypise do konzole String na indexu x v poli.
+    */ 
     public static void pT(int x) {
         /**
          * Vraci casti obrazku stromu ze String pole, vstup funkce x 0-7
@@ -38,7 +41,10 @@ public class VanocniUloha {
         };
         System.out.print(print[x]);
     }
-    // pS prints snowman
+    /**
+     * Vstupem metody je int x; 
+     * Metoda vypise do konzole String na indexu x v poli.
+    */ 
     public static void pS(int x) {
         /**
          * Vraci casti obrazku snehulaka ze String pole, vstup funkce x 0-7
@@ -55,7 +61,10 @@ public class VanocniUloha {
         };
         System.out.print(print[x]);
     }
-    // pH prints house
+    /**
+     * Vstupem metody je int x; 
+     * Metoda vypise do konzole String na indexu x v poli.
+    */ 
     public static void pH(int x) {
         /**
          * Vraci casti obrazku domu ze String pole, vstup funkce x 0-7
@@ -72,7 +81,10 @@ public class VanocniUloha {
         };
         System.out.print(print[x]);
     }
-    // pB prints barn
+    /**
+     * Vstupem metody je int x;
+     * Metoda vypise do konzole String na indexu x v poli.
+    */ 
     public static void pB(int x) {
         /**
          * Vraci casti obrazku stodoly ze String pole, vstup funkce x 0-7
@@ -89,7 +101,10 @@ public class VanocniUloha {
         };
         System.out.print(print[x]);
     }
-    // pC prints church
+    /**
+     * Vstupem metody je int x; 
+     * Metoda vypise do konzole String na indexu x v poli.
+    */ 
     public static void pC(int x) {
         /**
          * Vraci casti obrazku kostela ze String pole, vstup funkce x 0-7
@@ -106,7 +121,10 @@ public class VanocniUloha {
         };
         System.out.print(print[x]);
     }
-    // pM prints moon
+    /**
+     * Vstupem metody je int x;
+     * Metoda vypise do konzole String na indexu x v poli.
+    */ 
     public static void pM(int x) {
         /**
          * Vraci casti obrazku mesice ze String pole, vstup funkce x 0-7
@@ -122,15 +140,16 @@ public class VanocniUloha {
                 "...."
         };
         System.out.print(print[x]);
-    }
-    
+    }    
+    /**
+    * Vstupem metody je char pole znaku predstavujici objekty; 
+    * Projde pole a v pripade existence akceptovanych znaku metoda 
+    * vola dalsi metody, ktere do konzole vypisuji ASCII vesnicku; 
+    * Vypisuje po radcich, vsechny objekty jsou vysoke 8 radku, 
+    * proto má for podminku mensi nez 8.
+    * @param inputFormated
+    */
     public static void generateVillage(char[] inputFormated){
-        /**
-         * Pro vygenerovani vesnicky ocekava vstup zformatovaneho char pole 
-         * znaku predstavujici objekty, projde pole a dle znaku vola funkce 
-         * vykreslujici vesnici, vypisuje po radcich, vsechny objekty jsou 
-         * vysoke 8 radku, proto má for podminku mensi nez 8.
-         */
         for(int i = 0; i<8; i++) {
             for(int x = 0; x<inputFormated.length; x++) {
                 if(inputFormated[x]=='h') {
@@ -155,16 +174,14 @@ public class VanocniUloha {
             System.out.printf("\n");
         }
     }
-    
-    public static void launch() {
-        /**
-         * Hlavni funkce
-         * 1. da uzivateli na vyber objekty, ktere muze 'stavet' 
-         * 2. nacte String vstup od uzivatele
-         * 3. zformatuje String vstup, prevede ho do char pole
-         * 4. char pole preda funkci 'generateVillage()'
-         */
-        
+    /**
+     * Spoustec vanocni ulohy;
+     * 1) Vypise uzivateli objekty, ktere muze 'stavet' 
+     * 2) nacte String vstup od uzivatele
+     * 3) zformatuje String vstup, odebere mezery, carky, prevede toLowerCase(), prevede ho do char pole
+     * 4) spusti metodu generateVillage() se vstupnim parametrem char pole znaku.
+    */
+    public static void launch() {        
         Scanner sc = new Scanner(System.in);
         
         Tools.textContainer("""
@@ -188,14 +205,12 @@ public class VanocniUloha {
         generateVillage(inputFormated);
         Tools.enterToContinue();
     }
-    
+    /**
+     * Hlavni metoda programu, z ktere lze spoustet metodu launch();
+     * Program ma byt spousten volanim metody launch() z externiho zdroje;
+     * Metodu main lze pouzit skvele pro debuggovaci ucely.
+    */ 
     public static void main(String[] args) {
-        /**
-         * <i>Hlavni funkce programu 'main()' slouzi spise pro debug ucely, spousteni 
-         * programu je zamysleno z externiho zdroje zavolanim funkce 'launch()', 
-         * ktera se ovsem da zavolat i z funkce 'main()'; </i>
-         */
-        
         //pri spusteni volanim launch() z externiho souboru se tato funkce vubec nespusti
         Tools.textContainer("!!! Spoustite vanocni ulohu bez pouziti launcheru !!!\nPro spravne fungovani programu ho spustte skrze Launcher.java");
         launch();

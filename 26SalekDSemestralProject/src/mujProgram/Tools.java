@@ -22,11 +22,17 @@ public class Tools {
     public static int containerMaxWidth = 128; //maximalni sirka kontejneru
     public static int containerWidth = 32; //defaultni sirka kontejneru
     public static int containerSidePadding = 2; //pocet mezer mezi textem a bocnim ohranicenim
-        
+    
+    /**
+     * Odradkuje v konzoli, usnadneni nekonecneho psani System out print \n.
+     */
     public static void emptyLine() {
         System.out.printf("\n");
     }
-    
+    /**
+     * Po zavolani vypise 'Press enter to continue' a prerusi akce v konzoli, 
+     * dokud uzivatel nezmackne enter.
+     */
     public static void enterToContinue() {
         /** 
          * Stiskni enter pro pokracovani.
@@ -41,7 +47,10 @@ public class Tools {
      public static void input() {
         System.out.printf("Volba: ");
     }
-    
+    /**
+     * Pomocna metoda metody textContainer.
+     * @param width 
+     */
     public static void textContainerStartEnd(int width) {
         width += (containerSidePadding*2);
         String output = "o";
@@ -52,7 +61,11 @@ public class Tools {
         
         System.out.printf("%s\n", output);
     }
-    
+    /**
+     * Pomocna metoda metody textContainer.
+     * @param text
+     * @param width 
+     */
     public static void textContainerLine(String text, int width) {
         width += (containerSidePadding*2);
         String output = "|";
@@ -73,7 +86,12 @@ public class Tools {
         
         System.out.printf("%s\n", output);
     }
-    
+    /**
+     * Ocekava String vstup, ktery muze obsahovat \n;
+     * Rozdeli vstupni String dle odradkovani do pole a vypisuje vstupni
+     * retezec do konzole s ohranicenim, rameckem.
+     * @param inputText Text pro vypis do konzole, muze obsahovat \n.
+     */
     public static void textContainer(String inputText) {
         /**
          * Vstupni retezec vypise do konzole ohranicene rameckem; 

@@ -11,11 +11,12 @@ import java.util.Scanner;
  * @version 1.1
  */
 public class Launcher {
-
+    /**
+    * Hlavni metoda programu; 
+    * Vypisuje uzivateli menu, dle vstupu od uzivatele spusti vanocni ulohu, 
+    * semestralni praci, nebo ukonci program.
+    */
     public static void main(String[] args) {
-        /**
-         * Vypisuje uzivateli menu, dle vstupu od uzivatele spusti vanocni ulohu, semestralni praci, nebo ukonci program.
-         */
         Scanner sc = new Scanner(System.in);
 
         String usr = System.getProperty("user.name");

@@ -29,9 +29,17 @@ a zároveň (b) matice obsahuje všechny hodnoty 1, 2, 3, … n2.
  */
 
 public class SemestralniPrace {
-
+    /**
+     * Vstupem metody je matice - 2D pole int hodnot;
+     * Kontroluje existenci vsech vyzadovanych hodnot prave jednou;
+     * Hodnoty v matici zapisuje do pomocneho boolean pole velikosti rozmeru matice ^2;
+     * Vystupni hodnota TRUE pokud cyklus nenarazi na hodnotu mimo prislusny interval 
+     * nebo se v boolean poli nenachazi zadna hodnota false.
+     * @param matice Uzivatelem zadana matice.
+    */
     public static boolean elementsCheck(int[][] matice) {
         boolean output = true;
+        
         int rozmery = matice.length * matice.length;
         boolean[] elements = new boolean[rozmery];
 
@@ -55,7 +63,12 @@ public class SemestralniPrace {
 
         return output;
     }
-
+    /**
+     * Vstupem metody je matice - 2D pole int hodnot;
+     * Vraci soucet hodnot prvniho radku matice, pokud se rovna souctu kazdemu dalsimu radku;
+     * Vraci 0, pokud se sobe radky nerovnaji.
+     * @param matice Uzivatelem zadana matice.
+    */ 
     public static int rowSum(int[][] matice) {
         int output = 1;
 
@@ -79,14 +92,18 @@ public class SemestralniPrace {
                 output = dalsiRadek;
             } else {
                 output = 0;
-                break;
             }
         }
 
         //System.out.println(output);
         return output;
     }
-
+    /**
+     * Vstupem metody je matice - 2D pole int hodnot;
+     * Vraci soucet hodnot prvniho sloupce matice, pokud se rovna souctu kazdemu dalsimu sloupci;
+     * Vraci 0, pokud se sobe sloupce nerovnaji.
+     * @param matice Uzivatelem zadana matice.
+    */ 
     public static int columnSum(int[][] matice) {
         int output = 1;
 
@@ -117,7 +134,11 @@ public class SemestralniPrace {
         //System.out.println(output);
         return output;
     }
-
+    /**
+     * Vstupem metody je matice - 2D pole int hodnot;
+     * Vraci soucet hlavni diagonaly.
+     * @param matice Uzivatelem zadana matice.
+    */ 
     public static int leftDiagonalSum(int[][] matice) {
         int output = 0;
 
@@ -127,7 +148,11 @@ public class SemestralniPrace {
 
         return output;
     }
-
+    /**
+     * Vstupem metody je matice - 2D pole int hodnot;
+     * Vraci soucet vedlejsi diagonaly. 
+     * @param matice Uzivatelem zadana matice.
+    */ 
     public static int rightDiagonalSum(int[][] matice) {
         int output = 0;
 
@@ -137,15 +162,23 @@ public class SemestralniPrace {
 
         return output;
     }
-
+    /**
+     * Vstupem metody je matice - 2D pole int hodnot;
+     * S pomoci dalsich metod kontroluje pravdivost vsech podminek magicke matice;
+     * 1) Vyskyt vsech hodnot od 1 do rozmeru matice ^2;
+     * 2) Soucet kazdeho radku se musi rovnat;
+     * 3) Soucet kazdeho sloupce se musi rovnat;
+     * 4) Soucet obou diagonal se musi rovnat;
+     * 5) Vsechny soucty v podminkach 2-4 se musi rovnat;
+     * Vraci TRUE pokud jsou splnene vsechny podminky, vraci FALSE pokud narazi na poruseni jakekoliv podminky.
+     * 
+     * @param matice Uzivatelem zadana matice.
+    */ 
     public static boolean isMagical(int[][] matice) {
-        boolean isMagical = true;
-
-        do {
+        
             // kontrola existence spravnych prvku
             if (!elementsCheck(matice)) {
-                isMagical = false;
-                break;
+                return false;
             }
             
             int rowSum = rowSum(matice);
@@ -154,20 +187,20 @@ public class SemestralniPrace {
             int diagonalsSum = leftDiagonalSum(matice) + rightDiagonalSum(matice);
                     
             if (rowSum != columnSum) {
-                isMagical = false;
-                break;
+                return false;
             }
 
             if (rowColumnSum != diagonalsSum) {
-                isMagical = false;
-                break;
+                return false;
             }
-
-        } while (false);
-
-        return isMagical;
+            
+        return true;
     }
-
+    /**
+     * Vstupem metody je matice - 2D pole int hodnot;
+     * Vypise matici, nic nevraci.
+     * @param matice Uzivatelem zadana matice.
+     */
     public static void vypisMatici(int[][] matice) {
         for (int i = 0; i < matice.length; i++) {
             for (int j = 0; j < matice[i].length; j++) {
@@ -176,7 +209,12 @@ public class SemestralniPrace {
             System.out.printf("\n");
         }
     }
-
+    /**
+     * Spoustec semestralni prace;
+     * Zajistuje komunikaci mezi uzivatelem a logikou programu;
+     * Nacita od uzivatele rozmer matice a hodnoty matice, nasledne spousti vyhodnocovaci logiku;
+     * Na zaklade vystupu funkce isMagical vypise vysledek.
+    */ 
     public static void launch() {
         Scanner sc = new Scanner(System.in);
 
@@ -218,13 +256,13 @@ public class SemestralniPrace {
         } while (n > 0);
 
     }
-    
+    /**
+     * Hlavni metoda programu, z ktere lze spoustet metodu launch();
+     * Program ma byt spousten volanim metody launch() z externiho zdroje;
+     * Metodu main lze pouzit skvele pro debuggovaci ucely.
+    */ 
     public static void main(String[] args) {
-        /**
-         * <i>Hlavni funkce programu 'main()' slouzi spise pro debug ucely, spousteni 
-         * programu je zamysleno z externiho zdroje zavolanim funkce 'launch()', 
-         * ktera se ovsem da zavolat i z funkce 'main()'; </i>
-         */
+        
         
         //pri spusteni volanim launch() z externiho souboru se tato funkce vubec nespusti
         Tools.textContainer("!!! Spoustite semestralni praci bez pouziti launcheru !!!\nPro spravne fungovani programu ho spustte skrze Launcher.java");
